@@ -1,10 +1,18 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { HandPlatterIcon, Search } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const header = () => {
   const [open, setOpen] = React.useState(false);
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    if (query.trim() === "") return;
+    navigate(`/search?q=${encodeURIComponent(query)}`);
+    setQuery("");
+  }
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
       <Link to="/">
@@ -18,14 +26,18 @@ const header = () => {
         <Link to="/" className="text-emerald-600 font-semibold text-md">Categories</Link>
         <Link to="/favourites" className="text-emerald-600 font-semibold text-md">Favourite</Link>
 
-        <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
+        <form onSubmit={handleSearch} className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
           <input
             className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500"
             type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
             placeholder="Search Meals"
           />
-          <Search size={16} className="text-gray-500 cursor-pointer" />
-        </div>
+          
+
+          <button type="submit"><Search size={16} className="text-gray-500 cursor-pointer" /></button>
+        </form>
       </div>
 
       <button

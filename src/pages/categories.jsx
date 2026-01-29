@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import loadingSpinner from "../components/loadingSpinner";
 import { fetchMealsByCategory } from "../API/fakeStore";
@@ -11,7 +11,7 @@ const categories = () => {
 
   useEffect(() => {
     fetchMealsByCategory(categories)
-      .then((res) => setMeals(res.data.meals))
+      .then((res) => setMeals(res.data.meals || []))
       .catch((err) => console.log("Meals by category fetch error: " + err))
       .finally(() => setLoading(false));
   }, []);

@@ -22,7 +22,7 @@ const mealDetails = () => {
 
   if (!mealDetails)
     return (
-      <p className="flex w-full justify-center text-gray-400">Meal not found</p>
+      <p className="flex w-full justify-center text-gray-400 mt-12">Meal not found</p>
     );
 
   const ingredients = [];

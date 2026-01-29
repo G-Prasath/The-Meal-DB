@@ -3,6 +3,7 @@ import Home from "./pages/home.jsx";
 import Categories from "./pages/categories.jsx";
 import Favourite from "./pages/favourite.jsx";
 import MealDetails from "./pages/mealDetails.jsx";
+import SearchResult from "./pages/searchResult.jsx";
 import Header from "./components/header.jsx";
 import { FavProvider } from "./context/favContext.jsx";
 
@@ -16,6 +17,8 @@ const App = () => {
           <Route path="/category/:categories" element={<Categories />} />
           <Route path="/favourites" element={<Favourite />} />
           <Route path="/meal/:mealId" element={<MealDetails />} />
+          <Route path="/search" element={<SearchResult />} />
+          <Route path="*" element={<h1 className="text-center text-3xl py-10 text-red-900">404 - Page Not Found</h1>} />
         </Routes>
       </FavProvider>
     </BrowserRouter>
