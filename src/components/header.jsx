@@ -7,7 +7,7 @@ const header = () => {
   const [open, setOpen] = React.useState(false);
   return (
     <nav className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
-      <Link to="javascript:;">
+      <Link to="/">
         <div className="flex items-center gap-x-2">
           <HandPlatterIcon size={32} className="text-emerald-600" /> <span className="text-xl font-semibold text-slate-700">Food Store</span>
         </div>
@@ -15,8 +15,8 @@ const header = () => {
 
       {/* Desktop Menu */}
       <div className="hidden sm:flex items-center gap-8">
-        <Link to="javascript:;" className="text-emerald-600 font-semibold text-md">Categories</Link>
-        <Link to="javascript:;" className="text-emerald-600 font-semibold text-md">Favourite</Link>
+        <Link to="/" className="text-emerald-600 font-semibold text-md">Categories</Link>
+        <Link to="/" className="text-emerald-600 font-semibold text-md">Favourite</Link>
 
         <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
           <input

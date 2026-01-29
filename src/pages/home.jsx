@@ -34,9 +34,9 @@ const home = () => {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {categories.map((cat) => (
-          <Link to={`/category/${cat.strCategory}`} key={cat.idCategory}>
+          <Link to={`/category/${cat.strCategory}`} key={cat.idCategory} className="w-full rounded-lg shadow-lg hover:shadow-xl transition-all">
             <img src={cat.strCategoryThumb} alt={cat.strCategory} />
-            <h2 className="text-center mt-2 font-medium text-gray-700">
+            <h2 className="text-center my-2 font-semibold text-md text-emerald-700">
               {cat.strCategory}
             </h2>
           </Link>
