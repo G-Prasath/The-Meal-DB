@@ -16,7 +16,7 @@ const header = () => {
       {/* Desktop Menu */}
       <div className="hidden sm:flex items-center gap-8">
         <Link to="/" className="text-emerald-600 font-semibold text-md">Categories</Link>
-        <Link to="/" className="text-emerald-600 font-semibold text-md">Favourite</Link>
+        <Link to="/favourites" className="text-emerald-600 font-semibold text-md">Favourite</Link>
 
         <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
           <input
