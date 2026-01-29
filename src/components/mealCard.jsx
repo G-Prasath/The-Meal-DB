@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import FavButton from "./favButton.jsx";
+import { useFavorites} from "../context/favContext.jsx"
 
 const mealCard = ({ meal }) => {
+  const { isFavorite, toggle } = useFavorites();
+  const fav = isFavorite(meal);
   return (
     <div className="relative p-4 rounded-b-lg shadow-xl bg-gray-100/40 hover:shadow-2xl transition-all" title={meal.strMeal}>
-      <FavButton  />
+      <FavButton meal={meal} onToggle={toggle} isFav={fav} />
       <Link
         to={`/meal/${meal.idMeal}`}
         key={meal.idMeal}
