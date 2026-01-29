@@ -1,7 +1,7 @@
 import { Heart } from "lucide-react";
-import React from "react";
 
 const favButton = ({ meal, onToggle, isFav }) => {
+  
   return (
     <button
     onClick={(e) => onToggle(meal)}
