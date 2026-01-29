@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import loadingSpinner from "../components/loadingSpinner";
 import { fetchMealsByCategory } from "../API/fakeStore";
+import MealCard from "../components/mealCard.jsx";
 
 const categories = () => {
   const { categories } = useParams();
@@ -19,21 +20,18 @@ const categories = () => {
 
   return (
     <div className="max-w-6xl mx-auto p-4">
+      
       <h1 className="text-3xl font-semibold capitalize mb-6 text-emerald-800">
         {categories} Meals
       </h1>
+      {
+        meals.length === 0 && (
+          <p className="text-gray-500">No meals found in this category.</p>
+        )
+      }
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {meals.map((meal) => (
-          <Link
-            to={`/meal/${meal.idMeal}`}
-            key={meal.idMeal}
-            className="w-full rounded-lg shadow-lg hover:shadow-xl transition-all"
-          >
-            <img src={meal.strMealThumb} alt={meal.strMeal} />
-            <h2 className="text-center my-2 font-semibold text-md text-emerald-700">
-              {meal.strMeal}
-            </h2>
-          </Link>
+          <MealCard meal={meal} key={meal.idMeal} />
         ))}
       </div>
     </div>
